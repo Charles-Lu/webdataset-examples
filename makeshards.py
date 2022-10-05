@@ -56,11 +56,7 @@ all_keys = set()
 
 def write_dataset(imagenet, base="./shards", split="train"):
 
-    # We're using the torchvision ImageNet dataset
-    # to parse the metadata; however, we will read
-    # the compressed images directly from disk (to
-    # avoid having to reencode them)
-    ds = datasets.ImageNet(imagenet, split=split)
+    ds = datasets.ImageFolder(os.path.join(imagenet, split))
     nimages = len(ds.imgs)
     print("# nimages", nimages)
 
