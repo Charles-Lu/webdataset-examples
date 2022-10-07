@@ -64,6 +64,7 @@ def write_dataset(imagenet, base="./shards", split="train"):
     # don't get any large sequences of a single class
     # in the dataset.
     indexes = list(range(nimages))
+    random.seed(0)
     random.shuffle(indexes)
 
     # This is the output pattern under which we write shards.
